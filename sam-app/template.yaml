@@ -34,7 +34,20 @@ Resources:
           Type: Api
           Properties:
             Path: /maths
-            Method: get          
+            Method: get        
+  createList:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: hello-world/
+      Handler: save-to-do-item.lambdaHandler
+      Runtime: nodejs8.10
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /to-do
+            Method: post          
+  
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
